@@ -5,9 +5,10 @@ import "hardhat/console.sol";
 
 contract SalesOrderLineFactory {
     struct SalesOrderLine {
-        uint256 SupplierId;
-        string SupplierName;
-        string SupplierPhone;
+        uint32 LineNo;
+        uint256 ProductId;
+        uint256 Quantity;
+        int256 Amount;
     }
 
     SalesOrderLine[] public salesOrderLines;
@@ -16,12 +17,13 @@ contract SalesOrderLineFactory {
     mapping(address => uint256) ownerSalesOrderLineCount;
 
     function createSalesOrderLine(
-        uint256 _SupplierId,
-        string calldata _SupplierName,
-        string calldata _SupplierPhone
+        uint32 _LineNo,
+        uint256 _ProductId,
+        uint256 _Quantity,
+        int256 _Amount
     ) external {
         salesOrderLines.push(
-            SalesOrderLine(_SupplierId, _SupplierName, _SupplierPhone)
+            SalesOrderLine(_LineNo, _ProductId, _Quantity, _Amount)
         );
 
         uint256 id = salesOrderLines.length - 1;
