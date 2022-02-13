@@ -21,7 +21,7 @@ contract SalesOrderLineFactory {
         uint256 _ProductId,
         uint256 _Quantity,
         int256 _Amount
-    ) external {
+    ) internal {
         salesOrderLines.push(
             SalesOrderLine(_LineNo, _ProductId, _Quantity, _Amount)
         );
