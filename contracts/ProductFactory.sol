@@ -49,4 +49,8 @@ contract ProductFactory {
         }
         return result;
     }
+
+    function getProductByOwnerCount() external view returns (uint256) {
+        return ownerProductCount[msg.sender];
+    }
 }

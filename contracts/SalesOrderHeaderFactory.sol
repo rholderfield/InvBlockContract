@@ -32,7 +32,6 @@ contract SalesOrderHeaderFactory is SalesOrderLineFactory {
             ownerSalesOrderHeaderCount[msg.sender] +
             1;
 
-        // Need to add loop for lines
         for (uint256 i = 0; i < newLines.length; i++) {
             createSalesOrderLine(
                 newLines[i].DocNumber,

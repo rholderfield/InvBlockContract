@@ -45,4 +45,8 @@ contract SupplierFactory {
         }
         return result;
     }
+
+    function getSupplierByOwnerCount() external view returns (uint256) {
+        return ownerSupplierCount[msg.sender];
+    }
 }
