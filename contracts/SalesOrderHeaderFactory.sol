@@ -34,7 +34,13 @@ contract SalesOrderHeaderFactory is SalesOrderLineFactory {
 
         // Need to add loop for lines
         for (uint256 i = 0; i < newLines.length; i++) {
-            createSalesOrderLine(_DocNumber, 1, 1, 5, 100);
+            createSalesOrderLine(
+                newLines[i].DocNumber,
+                newLines[i].LineNo,
+                newLines[i].ProductId,
+                newLines[i].Quantity,
+                newLines[i].Amount
+            );
         }
     }
 
