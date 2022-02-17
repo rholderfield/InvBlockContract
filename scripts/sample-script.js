@@ -11,16 +11,52 @@ async function main() {
   //
   // If this script is run directly using `node` you may want to call compile
   // manually to make sure everything is compiled
-  // await hre.run('compile');
+  await hre.run("compile");
 
   // We get the contract to deploy
-  const Greeter = await hre.ethers.getContractFactory("ProductFactory");
-  const greeter = await Greeter.deploy();
+  //
+  const ProductFactory = await hre.ethers.getContractFactory("ProductFactory");
+  const productFactory = await ProductFactory.deploy();
 
-  await greeter.deployed();
+  await productFactory.deployed();
 
-  console.log("Greeter deployed to:", greeter.address);
+  console.log("ProductFactory deployed to:", productFactory.address);
+  //
 
+  const SupplierFactory = await hre.ethers.getContractFactory(
+    "SupplierFactory"
+  );
+  const supplierFactory = await SupplierFactory.deploy();
+
+  await supplierFactory.deployed();
+
+  console.log("SupplierFactory deployed to:", supplierFactory.address);
+  //
+
+  const PurchaseOrderHeaderFactory = await hre.ethers.getContractFactory(
+    "PurchaseOrderHeaderFactory"
+  );
+  const purchaseOrderHeaderFactory = await PurchaseOrderHeaderFactory.deploy();
+
+  await purchaseOrderHeaderFactory.deployed();
+
+  console.log(
+    "PurchaseOrderHeaderFactory deployed to:",
+    purchaseOrderHeaderFactory.address
+  );
+  //
+
+  const SalesOrderHeaderFactory = await hre.ethers.getContractFactory(
+    "SalesOrderHeaderFactory"
+  );
+  const salesOrderHeaderFactory = await SalesOrderHeaderFactory.deploy();
+
+  await salesOrderHeaderFactory.deployed();
+
+  console.log(
+    "SalesOrderHeaderFactory deployed to:",
+    salesOrderHeaderFactory.address
+  );
 }
 
 // We recommend this pattern to be able to use async/await everywhere
